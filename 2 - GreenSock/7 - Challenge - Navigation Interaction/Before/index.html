@@ -67,8 +67,40 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        const links = document.querySelectorAll('li a')
+        
+        links.forEach(link => {
+            const primary = link.querySelector('.primary')
+            const secondary = link.querySelector('.secondary')
+            const date = link.querySelector('.date')
+            const line = link.querySelector('.line')
+            
+            let tl = gsap.timeline({ 
+                paused: true, 
+                defaults: {
+                    duration: 0.25, 
+                    ease: 'none'
+                }
+            })
+            
+            tl.to([primary,secondary], {
+                y: '-50%'
+            })
+            .to(line, {
+                scaleX: 1
+            }, '<')
+            .to(date, {
+                y: 0
+            }, '<')
 
-
+            link.addEventListener('mouseenter', () => {
+                tl.play()
+            })
+            
+            link.addEventListener('mouseleave', () => {
+                tl.reverse()
+            })
+        })
 
     </script>
 </body>

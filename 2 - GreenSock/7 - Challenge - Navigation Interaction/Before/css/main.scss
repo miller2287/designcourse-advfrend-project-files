@@ -56,7 +56,7 @@ ul {
         }
 
         p.date {
-            //transform: translateY(170%)
+            transform: translateY(170%)
         }
 
         .line {
@@ -65,7 +65,7 @@ ul {
             left: 0;
             width: 3%;
             border-bottom: 1px solid white;
-            //transform: scaleX(0);
+            transform: scaleX(0);
             transform-origin: left;
         }
     }
